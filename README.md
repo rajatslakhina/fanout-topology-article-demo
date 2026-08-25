@@ -115,7 +115,7 @@ swift build && swift test
 
 ## Article
 
-Article: (added after publish)
+**[Multi-Agent Orchestration Has a Break-Even Point. I Wrote It Down — and the iOS Inner Loop Fails It.](https://medium.com/@er.rajatlakhina/multi-agent-orchestration-has-a-break-even-point-eca578ad7b3b)** — the write-up this package was built for.
 
 ## Licence
 
