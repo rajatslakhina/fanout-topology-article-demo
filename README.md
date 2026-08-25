@@ -44,11 +44,13 @@ waits on. `TaskGraphTests.testNodeIsPlacedByLongestChainNotShortest` pins that.
 | Feature ship *(pessimistic)* | 2 | 50% | 58.3% | stay single-agent | 1.10× | 4.6× |
 | Module audit | 6 | 90% | 32.5% | fan out | 0.31× | 4.3× |
 
-![Line chart, "The break-even ladder". Required parallel share falls from 44% at two lanes to 32.5% from six lanes onward, where the 0.81 ceiling clamps it. Above the curve is shaded green, "fan-out pays"; below is red, "stay single-agent". The one-lane column is unshaded because no break-even exists there. The three fixtures are plotted against the curve.](docs/break-even-ladder.png)
+![Line chart, "The break-even ladder". Required parallel share falls from 43.8% at two lanes to 32.5% from six lanes onward, where the 0.81 ceiling clamps it. Above the curve is shaded green, "fan-out pays"; below is red, "stay single-agent". The one-lane column is unshaded because no break-even exists there. The three fixtures are plotted against the curve.](docs/break-even-ladder.png)
 
 The same feature-ship graph flips verdict on the coefficients alone. That is the argument
 for measuring your own single-agent baseline before you pick a topology, and
 `FanOutPlannerTests.testFeatureShipFlipsVerdictUnderThePessimisticModel` is the test.
+
+![Two syntax-highlighted Swift panels. Left, an excerpt of plan(for:model:) in FanOutPlan.swift computing latencyIndex under the comment "The token premium never enters here. Spending more does not buy wall-clock." Right, an excerpt of the test asserting the optimistic model fans out and the pessimistic one does not on the same graph, with a callout: width 2, 50% parallel, break-even wants 43.8%, optimistic 0.945x wall-clock, pessimistic 1.10x.](docs/decision-and-test.png)
 
 ## Using it
 
@@ -93,8 +95,8 @@ swift build && swift test
 ## Verification status
 
 - `swift build` — **clean**, Swift 6.0.3, Linux aarch64.
-- `swift test` — **33 of 33 passing.** Every number the library computes — and that the
-  article quotes — is pinned by `PublishedNumbersTests`, so if the model moves, the tests
+- `swift test` — **33 of 33 passing.** Every number this article quotes from the model
+  is pinned by the test suite, so if the model moves, the tests
   fail and the article is wrong. That is deliberate.
 - **Scope of that green build, stated precisely:** it covers the `FanOutPlanner` target.
   `Sources/FanOutPlannerUI/FanOutPlannerView.swift` is wrapped in `#if canImport(SwiftUI)`,
