@@ -1,5 +1,6 @@
 //  DemoApp.swift
-//  Runnable host for FanOutPlannerUI. Open Demo.xcodeproj, pick a Simulator, Run.
+//  Host app for FanOutPlannerUI: open Demo.xcodeproj, pick a Simulator, Build & Run.
+//  Not covered by `swift build` — see the README's Verification status before trusting it.
 
 import SwiftUI
 import FanOutPlannerUI
