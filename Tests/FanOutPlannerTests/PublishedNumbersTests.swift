@@ -37,7 +37,7 @@ final class PublishedNumbersTests: XCTestCase {
         )
         XCTAssertEqual(
             FanOutPlanner.plan(for: Fixtures.featureShip(), model: .pessimistic).summary,
-            "Stay single-agent: 50% of token volume is parallelisable, break-even needs 58%. "
+            "Stay single-agent: 50.0% of token volume is parallelisable, break-even needs 58.3%. "
                 + "Fan-out would run 1.10× wall-clock for 4.6× tokens."
         )
     }
