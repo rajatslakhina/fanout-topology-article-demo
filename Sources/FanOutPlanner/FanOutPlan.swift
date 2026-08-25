@@ -54,8 +54,8 @@ public struct FanOutPlan: Sendable, Equatable {
             return "Stay single-agent: the graph is a \(metrics.depth)-step chain with no lanes. "
                  + "Fan-out would cost \(tokens)× tokens to run \(latency)× wall-clock."
         case .staySingleAgent(.belowBreakEven(let share, let required)):
-            let have = String(format: "%.0f%%", share * 100)
-            let need = String(format: "%.0f%%", required * 100)
+            let have = String(format: "%.1f%%", share * 100)
+            let need = String(format: "%.1f%%", required * 100)
             return "Stay single-agent: \(have) of token volume is parallelisable, "
                  + "break-even needs \(need). Fan-out would run \(latency)× wall-clock for \(tokens)× tokens."
         }

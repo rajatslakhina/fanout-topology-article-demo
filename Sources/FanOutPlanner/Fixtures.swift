@@ -8,7 +8,6 @@ public enum Fixtures {
     /// The iOS inner loop. Patch, build, run the flow on a simulator, read the failure.
     /// Every step needs the output of the one before it. Width 1, all the way down.
     public static func iOSInnerLoop() -> TaskGraph {
-        // swiftlint:disable:next force_try — inputs are literals, validated by FixtureTests.
         (try? TaskGraph([
             TaskNode(id: "patch", title: "Apply the change", tokens: 4_000),
             TaskNode(id: "build", title: "Compile the target", tokens: 6_000, dependsOn: ["patch"]),
