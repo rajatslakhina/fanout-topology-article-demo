@@ -14,7 +14,7 @@ Usually it doesn't.
 The share of your token volume that has to be genuinely parallelisable before fan-out
 breaks even on wall-clock has a closed form:
 
-```
+```text
 p* = penalty / (penalty + gain)
 ```
 
